@@ -1,0 +1,23 @@
+{
+  "name": "reaction-diffusion-simulation",
+  "version": "1.0.0",
+  "description": "Reaction Diffusion Simulation",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/chooblarin/reaction-diffusion-simulation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chooblarin/reaction-diffusion-simulation/issues"
+  },
+  "homepage": "https://github.com/chooblarin/reaction-diffusion-simulation#readme",
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "parcel-bundler": "^1.9.7"
+  }
+}
