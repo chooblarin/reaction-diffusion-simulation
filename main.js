@@ -10,24 +10,7 @@ const regl = require('regl')(sketch);
 
 const createFramebuffer = () => {
 
-  const rectWidth = 40;
-  const rectHeight = 40;
-  const rectLeft = (radius - rectWidth) / 2.0;
-  const rectTop = (radius - rectHeight) / 2.0;
-  const rectRight = rectLeft + rectWidth;
-  const rectBottom = rectTop + rectHeight;
-
   const data = Array(radius * radius * 4).fill(0.0);
-
-  for (let y = 0; y < radius; y += 1) {
-    for (let x = 0; x < radius; x += 1) {
-      const index = (x + y * radius) * 4;
-      data[index] = 255.0;
-      if (rectLeft < x && x < rectRight && rectTop < y && y < rectBottom) {
-        data[index + 1] = 255.0;
-      }
-    }
-  }
 
   const color = regl.texture({
     data,
@@ -96,7 +79,7 @@ const update = regl({
       if (mousePressed) {
         vec2 l = mousePosition - texCoord;
         float dist = dot(l, l);
-        if (dist < 0.001) {
+        if (dist < 0.0001) {
           u = 0.2;
           v = 0.4;
         }
@@ -156,13 +139,6 @@ const setup = regl({
   },
 
   count: 6
-});
-
-const keydown$ = fromEvent(window, 'keydown');
-const sKeydown$ = keydown$.pipe(filter(ev => ev.key === 's'));
-
-sKeydown$.subscribe(_ev => {
-  // TODO: save canvas as image
 });
 
 const mouseup$ = fromEvent(window, 'mouseup');
